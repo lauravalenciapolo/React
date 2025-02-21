@@ -1,4 +1,3 @@
-import { Button } from "@mui/material"
 
 export function LoginForm({data, handleSubmit, handleChange}) {
 
@@ -13,7 +12,7 @@ export function LoginForm({data, handleSubmit, handleChange}) {
                         <input type={input.type} name={input.name} onChange={handleChange}/>
                     </div>
                 ))}
-                <Button variant="contained" >{data.nameButton}</Button>
+                <button>{data.nameButton}</button>
             </form>
         </div>
     )

@@ -22,6 +22,7 @@ export function LoginForm() {
         e.preventDefault();
         try {
           const response = await fetchLogin(dataLoginForm.email, dataLoginForm.password);
+          console.log(response);
           localStorage.setItem("tokenUser", response.token);
           localStorage.setItem("User", JSON.stringify(response.user));
           if (response.success) {
