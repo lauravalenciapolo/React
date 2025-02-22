@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "../../Components/Navbar/Navbar";
 import LoginForm from "../../Components/LoginForm/LoginForm";
+import { Box, Typography } from "@mui/material";
 
 function Home() {
 
+  useEffect(() => {
+    const token = localStorage.getItem("tokenUser");
+    if (token) {
+      window.location.href = "/miCuenta";
+    }
+  }, []);
+
   return (
-    <div>
+    <Box>
       <Navbar />
-      <h1>Bienvenido a Makers</h1>
+      <Typography variant="h1">Bienvenido a Makers</Typography>
       <LoginForm />
-    </div>
+    </Box>
   );
 }
 

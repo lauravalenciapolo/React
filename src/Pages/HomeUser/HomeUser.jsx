@@ -1,13 +1,13 @@
-import { useState } from "react";
+import { Box } from "@mui/material";
 import LoadForm from "../../Components/LoadForm/LoadForm";
 
 function HomeUsuario() {
 
   return (
-    <div>
+    <Box>
       <h1>Bienvenido, nos encanta verte de nuevo!</h1>
       <LoadForm />
-    </div>
+    </Box>
   );
 }
 

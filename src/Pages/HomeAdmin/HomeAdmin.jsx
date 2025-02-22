@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { LoadCard } from "../../Components/LoadCard/LoadCard";
 import {fetchLoads} from "../../assets/Services/Services";
+import { Box, Typography } from "@mui/material";
 
-function HomeAdmin() {
+function HomeAdmin({name}) {
     const [loadData, setLoadData] = useState([]);
 
     useEffect(() => {
@@ -10,19 +11,22 @@ function HomeAdmin() {
             try {
                 const response = await fetchLoads();
                 if (response.success) {
-                    setLoadData(response.data);
+                    const fetchedData = response.data;
+                    setLoadData(fetchedData);
                 }
             } catch (error) {
                 console.error("Error al obtener los datos:", error);
             }
-        }
+        };
+    
         fetchData();
     }, []);
+    
     return (
-        <div>    
-            <h1>Hola, Admin ...</h1>
-            {loadData && <LoadCard data={loadData} />}
-        </div>
+        <Box>    
+            <Typography variant="h1">Hola, Admin {name}</Typography>
+            {loadData && <LoadCard data={loadData} setData={setLoadData} />}
+        </Box>
     );
 }
 

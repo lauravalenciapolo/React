@@ -3,30 +3,30 @@ const usuarios = [
     {
         id: 1,
         name: "LauraAdmin",
-        email: "laura@laura",
+        email: "laura@hotmail.com",
         password: "123456",
         rol: "admin"
     },
     {
         id: 2,
         name: "LauraUser",
-        email: "laura2@laura",
+        email: "laura2@gmail.com",
         password: "1234",
         rol: "user"
     },
     {
         id: 3,
         name: "LauraUser2",
-        email: "laura3@laura",
+        email: "laura3@gmail.com",
         password: "1234",
         rol: "user"
     }
 ]
 
-const LoadDataMock = [{emailUser: "laura@laura", monto: 10000, state: "pending"}, 
-    {emailUser: "laura2@laura", monto: 8000, state: "pending"}, 
-    {emailUser: "laura3@laura", monto: 1000, state: "pending"}, 
-    {emailUser: "laura4@laura", monto: 1000, state: "accept"},]
+const LoadDataMock = [{id: 1, emailUser: "laura@laura", monto: 10000, state: "pending"}, 
+    {id:2, emailUser: "laura2@laura", monto: 8000, state: "pending"}, 
+    {id:3, emailUser: "laura3@laura", monto: 1000, state: "pending"}, 
+    {id:4, emailUser: "laura4@laura", monto: 1000, state: "accept"},]
 
 export const fetchLogin = (email, password) => {
     return new Promise((resolve, reject) => {
@@ -42,7 +42,7 @@ export const fetchLogin = (email, password) => {
     });
 };
 
-export const fetchLoads = (email, password) => {
+export const fetchLoads = () => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             const loads = LoadDataMock.filter(e => e.state == "pending")
